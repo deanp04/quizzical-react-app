@@ -2,6 +2,8 @@ import React from "react";
 import { nanoid } from "nanoid";
 import Question from "./Question";
 
+
+
 export default function QuestionList({ gameOptions, handleGameStart, handleNoQuestionsError }) {
 	const [questionsArray, setQuestionsArray] = React.useState([]);
 	const [checkAnswerBtn, setCheckAnswerBtn] = React.useState(false);
@@ -116,7 +118,7 @@ export default function QuestionList({ gameOptions, handleGameStart, handleNoQue
 
 	return (
 		<section className="questionList-container">
-			{questionElements}
+            {questionElements}
 
 			<div className="bottom-container">
 				{isGameOver &&

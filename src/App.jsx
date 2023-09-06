@@ -3,6 +3,7 @@ import './style.css'
 import QuestionList from "./components/QuestionList";
 import shapeTop from "./images/shape-1.png";
 import shapeBottom from "./images/shape-2.png";
+import Confetti from "react-confetti";
 
 export default function App() {
 	const [gameStarted, setGameStarted] = React.useState(false);
@@ -31,7 +32,7 @@ export default function App() {
 	}
 
 	return (
-		<main>
+        <main>
 			<img className="shape-top" src={shapeTop} alt="Shape Top" />
 			
 			{
