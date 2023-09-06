@@ -1,13 +1,13 @@
-import { useState } from 'react'
+import React from "react";
 import './style.css'
 import QuestionList from "./components/QuestionList";
 import shapeTop from "./images/shape-1.png";
 import shapeBottom from "./images/shape-2.png";
 
-const App = () => {
-	const [gameStarted, setGameStarted] = useState(false);
-	const [showNoQuestionsError, setShowNoQuestionsError] = useState(false);
-	const [gameOptions, setGameOptions] = useState(
+export default function App() {
+	const [gameStarted, setGameStarted] = React.useState(false);
+	const [showNoQuestionsError, setShowNoQuestionsError] = React.useState(false);
+	const [gameOptions, setGameOptions] = React.useState(
 		{
 			category: "",
 			difficulty: "",
@@ -47,12 +47,10 @@ const App = () => {
 				:
 					<section className="game-intro">
 						<h1 className="game-title">Quizzical</h1>
-						<p className="game-text">Answer the questions and test your knowledge!</p>
+						<p className="game-text">Select your options below and click "Start" to test your knowledge!</p>
 
 						{showNoQuestionsError &&
-							<h2 className="noQuestions-text">
-								Oops! We couldn't find any questions with these options!
-							</h2>
+							<h2 className="noQuestions-text">Oops! We couldn't find any questions with these options!</h2>
 						}
 
 						<div className="gameOptions-container">
@@ -142,5 +140,3 @@ const App = () => {
 		</main>
 	);
 }
-
-export default App

@@ -1,16 +1,16 @@
-import { useState, useEffect } from "react";
+import React from "react";
 import { nanoid } from "nanoid";
 import Question from "./Question";
 
 export default function QuestionList({ gameOptions, handleGameStart, handleNoQuestionsError }) {
-	const [questionsArray, setQuestionsArray] = useState([]);
-	const [checkAnswerBtn, setCheckAnswerBtn] = useState(false);
-	const [correctAnswersCount, setCorrectAnswersCount] = useState(0);
-	const [isGameOver, setIsGameOver] = useState(false);
+	const [questionsArray, setQuestionsArray] = React.useState([]);
+	const [checkAnswerBtn, setCheckAnswerBtn] = React.useState(false);
+	const [correctAnswersCount, setCorrectAnswersCount] = React.useState(0);
+	const [isGameOver, setIsGameOver] = React.useState(false);
 
 	const allQuestionsAnswered = questionsArray.every(question => question.selectedAnswer !== "");
 
-	useEffect(() => {
+	React.useEffect(() => {
 		getQuestions(gameOptions).then(questions => {
 			if (questions.length === 0) {
 				handleGameStart();
@@ -32,7 +32,7 @@ export default function QuestionList({ gameOptions, handleGameStart, handleNoQue
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
-	useEffect(() => {
+	React.useEffect(() => {
 		if (questionsArray.length !== 0 && allQuestionsAnswered) {
 			let correctAnswers = 0;
 			
